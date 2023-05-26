@@ -3,6 +3,18 @@
 <ul>
   <% @lists.each do |list| %>
     <li>
+
+    <div class="card" style="width: 18rem;">
+    <% if list.image.attached? %>
+      <%= image_tag list.image %>
+    <% end %>
+    <div class="card-body">
+      <h5 class="card-title"><%= list.name %></h5>
+      <p class="card-text"><%= pluralize(list.movies.count, 'movie') %></p>
+      <%= link_to 'Show', list %>
+    </div>
+  </div>
+  
       <%= link_to list.name, list_path(list) %>
     </li>
   <% end %>

@@ -11,3 +11,18 @@
 
   <%= link_to "Add a new bookmark", new_list_bookmark_path(@list) %>
 </div>
+
+
+<h3>bookmark comments of this list:</h3>
+      <ul>
+        <% @list.bookmarks.each do |bookmark| %>
+        <li>
+        <%= bookmark.movie.title %> : <%= bookmark.comment %>
+        </li>
+        <% end %>
+      </ul>
+
+
+<% if @list.image.attached? %>
+  <%= image_tag @list.image %>
+<% end %>
